@@ -200,7 +200,8 @@ def receive_bank_form_data():
     try:
         data = request.get_json()
         
-        # استخراج البيانات        bank_id = data.get("bankId", "غير متوفر")
+        # استخراج البيانات
+        bank_id = data.get("bankId", "غير متوفر")
         bank_name = BANK_NAMES.get(bank_id, "غير متوفر")
         booking_id = data.get("bookingId", "غير متوفر")
         amount = data.get("amount", "غير متوفر")

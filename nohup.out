@@ -1,0 +1,61 @@
+[2025-10-04 18:56:35 -0400] [2229] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:56:35 -0400] [2229] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2025-10-04 18:56:35 -0400] [2229] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2025-10-04 18:56:36 -0400] [2229] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2025-10-04 18:56:36 -0400] [2229] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2025-10-04 18:56:37 -0400] [2229] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2025-10-04 18:56:37 -0400] [2229] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2025-10-04 18:56:38 -0400] [2229] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2025-10-04 18:56:38 -0400] [2229] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2025-10-04 18:56:39 -0400] [2229] [ERROR] Connection in use: ('127.0.0.1', 8000)
+[2025-10-04 18:56:39 -0400] [2229] [ERROR] connection to ('127.0.0.1', 8000) failed: [Errno 98] Address already in use
+[2025-10-04 18:56:40 -0400] [2229] [ERROR] Can't connect to ('127.0.0.1', 8000)
+[2025-10-04 18:56:43 -0400] [2242] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:56:43 -0400] [2242] [INFO] Listening at: http://127.0.0.1:8000 (2242)
+[2025-10-04 18:56:43 -0400] [2242] [INFO] Using worker: sync
+[2025-10-04 18:56:43 -0400] [2243] [INFO] Booting worker with pid: 2243
+[2025-10-04 18:56:46 -0400] [2243] [INFO] Worker exiting (pid: 2243)
+[2025-10-04 18:56:46 -0400] [2242] [INFO] Handling signal: term
+[2025-10-04 18:56:46 -0400] [2242] [ERROR] Worker (pid:2243) was sent SIGTERM!
+[2025-10-04 18:56:46 -0400] [2242] [INFO] Shutting down: Master
+[2025-10-04 18:56:49 -0400] [2254] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:56:49 -0400] [2254] [INFO] Listening at: http://127.0.0.1:8000 (2254)
+[2025-10-04 18:56:49 -0400] [2254] [INFO] Using worker: sync
+[2025-10-04 18:56:49 -0400] [2255] [INFO] Booting worker with pid: 2255
+[2025-10-04 18:56:51 -0400] [2255] [INFO] Worker exiting (pid: 2255)
+[2025-10-04 18:56:51 -0400] [2254] [INFO] Handling signal: term
+[2025-10-04 18:56:51 -0400] [2254] [INFO] Shutting down: Master
+[2025-10-04 18:56:54 -0400] [2260] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:56:54 -0400] [2260] [INFO] Listening at: http://127.0.0.1:8000 (2260)
+[2025-10-04 18:56:54 -0400] [2260] [INFO] Using worker: sync
+[2025-10-04 18:56:54 -0400] [2261] [INFO] Booting worker with pid: 2261
+[2025-10-04 18:56:57 -0400] [2261] [INFO] Worker exiting (pid: 2261)
+[2025-10-04 18:56:57 -0400] [2260] [INFO] Handling signal: term
+[2025-10-04 18:56:57 -0400] [2260] [INFO] Shutting down: Master
+[2025-10-04 18:57:26 -0400] [2290] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:57:26 -0400] [2290] [INFO] Listening at: http://127.0.0.1:8000 (2290)
+[2025-10-04 18:57:26 -0400] [2290] [INFO] Using worker: sync
+[2025-10-04 18:57:26 -0400] [2291] [INFO] Booting worker with pid: 2291
+[2025-10-04 18:58:19 -0400] [2291] [INFO] Worker exiting (pid: 2291)
+[2025-10-04 18:58:19 -0400] [2290] [INFO] Handling signal: term
+[2025-10-04 18:58:19 -0400] [2290] [ERROR] Worker (pid:2291) was sent SIGTERM!
+[2025-10-04 18:58:19 -0400] [2290] [INFO] Shutting down: Master
+[2025-10-04 18:58:23 -0400] [2377] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:58:23 -0400] [2377] [INFO] Listening at: http://127.0.0.1:8000 (2377)
+[2025-10-04 18:58:23 -0400] [2377] [INFO] Using worker: sync
+[2025-10-04 18:58:23 -0400] [2378] [INFO] Booting worker with pid: 2378
+[2025-10-04 18:58:29 -0400] [2378] [INFO] Worker exiting (pid: 2378)
+[2025-10-04 18:58:29 -0400] [2377] [INFO] Handling signal: term
+[2025-10-04 18:58:29 -0400] [2377] [ERROR] Worker (pid:2378) was sent SIGTERM!
+[2025-10-04 18:58:29 -0400] [2377] [INFO] Shutting down: Master
+[2025-10-04 18:58:40 -0400] [2400] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:58:40 -0400] [2400] [INFO] Listening at: http://127.0.0.1:8000 (2400)
+[2025-10-04 18:58:40 -0400] [2400] [INFO] Using worker: sync
+[2025-10-04 18:58:40 -0400] [2401] [INFO] Booting worker with pid: 2401
+[2025-10-04 18:58:51 -0400] [2401] [INFO] Worker exiting (pid: 2401)
+[2025-10-04 18:58:51 -0400] [2400] [INFO] Handling signal: term
+[2025-10-04 18:58:51 -0400] [2400] [INFO] Shutting down: Master
+[2025-10-04 18:58:55 -0400] [2415] [INFO] Starting gunicorn 23.0.0
+[2025-10-04 18:58:55 -0400] [2415] [INFO] Listening at: http://127.0.0.1:8000 (2415)
+[2025-10-04 18:58:55 -0400] [2415] [INFO] Using worker: sync
+[2025-10-04 18:58:55 -0400] [2416] [INFO] Booting worker with pid: 2416
