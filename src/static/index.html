@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="تثبيت حجز استراحه - تجربة فاخرة لا تُنسى">
+    <meta property="og:description" content="استمتع بتجربة إقامة فاخرة لا تُنسى في أجمل استراحات الإمارات">
+    <meta property="og:image" content="images/logo.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:type" content="website">
+    <title>تثبيت حجز استراحه - تجربة فاخرة لا تُنسى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 0.8rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c5aa0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 90%;
+            padding: 0 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.3rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #2c5aa0, #1e3a8a);
+            color: white;
+            padding: clamp(0.8rem, 3vw, 1.2rem) clamp(1.5rem, 6vw, 3rem);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(44, 90, 160, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(44, 90, 160, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: clamp(3rem, 8vw, 5rem) 0;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            font-weight: 700;
+            color: #2c5aa0;
+            margin-bottom: clamp(2rem, 6vw, 3rem);
+            line-height: 1.3;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+            line-height: 1.3;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: clamp(3rem, 8vw, 5rem) 0;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: clamp(250px, 40vw, 300px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            display: flex;
+            align-items: end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            color: white;
+        }
+
+        .gallery-text h3 {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .gallery-text p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .footer p {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* إشعارات */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #4caf50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            min-width: 300px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .notification button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-right: auto;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                min-height: 100vh;
+                padding: 0 1rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                height: 250px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header {
+                padding: 0.5rem 0;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+            
+            .notification {
+                min-width: 90%;
+                left: 5%;
+                transform: translateX(0) translateY(-100px);
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 0 0.5rem;
+            }
+
+            .features {
+                padding: 2rem 0;
+            }
+
+            .gallery {
+                padding: 2rem 0;
+            }
+
+            .feature-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .gallery-overlay {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .nav-container {
+                padding: 0 0.5rem;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero {
+                height: 100vh;
+                min-height: 500px;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .feature-card:hover {
+                transform: none;
+            }
+            
+            .gallery-item:hover {
+                transform: none;
+            }
+            
+            .gallery-item:hover img {
+                transform: none;
+            }
+            
+            .cta-button:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <!-- تم إرجاع الشعار إلى المسار الأصلي -->
+                <img src="images/logo.jpg" alt="تثبيت حجز استراحه">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#features">المميزات</a></li>
+                <li><a href="#gallery">المعرض</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="floating">تثبيت حجز استراحه</h1>
+            <p>استمتع بتجربة إقامة فاخرة لا تُنسى في أجمل استراحات الإمارات</p>
+            <a href="data.html" class="cta-button">
+                <i class="fas fa-calendar-check"></i>
+                اضغط هنا للحجز
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title fade-in">لماذا تثبيت حجز استراحه؟</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3>مسابح خاصة</h3>
+                    <p>استمتع بمسبح خاص لكل استراحة مع إطلالة خلابة على البحر والطبيعة الساحرة</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>مطبخ مجهز</h3>
+                    <p>مطابخ حديثة مجهزة بالكامل بأحدث الأجهزة لتحضير وجباتك المفضلة</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>إنترنت عالي السرعة</h3>
+                    <p>اتصال إنترنت فائق السرعة مجاني في جميع أنحاء الاستراحة</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>موقف سيارات</h3>
+                    <p>مواقف سيارات آمنة ومجانية لجميع النزلاء</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>خدمة 24/7</h3>
+                    <p>فريق خدمة عملاء متاح على مدار الساعة لخدمتكم</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>أمان وحماية</h3>
+                    <p>نظام أمان متطور وحراسة على مدار الساعة لضمان راحتكم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">معرض الصور</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <!-- تم إصلاح رابط الصورة -->
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="استراحة فاخرة">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>استراحات فاخرة</h3>
+                            <p>تصميم عصري وأناقة لا مثيل لها</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <!-- تم إصلاح رابط الصورة -->
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="إطلالة الجزيرة">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>إطلالة الجزيرة</h3>
+                            <p>مناظر طبيعية خلابة تأسر القلوب</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <!-- تم إصلاح رابط الصورة الأخيرة للمسبح -->
+                    <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="المسبح">
+                    <div class="gallery-overlay">
+                        <div class="gallery-text">
+                            <h3>مسابح خاصة</h3>
+                            <p>استرخاء وهدوء في أجواء استثنائية</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 تثبيت حجز استراحه. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // اختبار بسيط للأيقونات دون إظهار إشعارات
+            setTimeout(() => {
+                const icons = document.querySelectorAll('.feature-icon i');
+                let allIconsLoaded = true;
+                
+                icons.forEach(icon => {
+                    const computedStyle = window.getComputedStyle(icon, '::before');
+                    const content = computedStyle.content;
+                    if (!content || content === 'none') {
+                        allIconsLoaded = false;
+                    }
+                });
+                
+                if (allIconsLoaded) {
+                    console.log('جميع الأيقونات محملة بنجاح');
+                } else {
+                    console.log('هناك مشكلة في تحميل بعض الأيقونات');
+                }
+            }, 1000);
+        });
+
+        // Prevent zoom on input focus (iOS Safari)
+        document.addEventListener('touchstart', function() {}, true);
+    </script>
+</body>
+</html>

